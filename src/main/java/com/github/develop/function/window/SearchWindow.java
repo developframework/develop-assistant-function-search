@@ -9,6 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * 搜索窗口
@@ -45,6 +47,12 @@ public class SearchWindow extends BaseWindow {
                         SearchWindow.this.dispose();
                     }
                 }
+            }
+        });
+
+        this.addWindowListener( new WindowAdapter() {
+            public void windowOpened( WindowEvent e ){
+                textField.requestFocus();
             }
         });
     }
