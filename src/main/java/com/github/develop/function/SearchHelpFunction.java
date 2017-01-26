@@ -1,5 +1,6 @@
 package com.github.develop.function;
 
+import com.github.develop.assistant.Application;
 import com.github.develop.assistant.HotKey;
 import com.github.develop.assistant.HotKeyFunction;
 import com.github.develop.function.window.SearchWindow;
@@ -11,7 +12,7 @@ import com.melloware.jintellitype.JIntellitype;
 public class SearchHelpFunction implements HotKeyFunction{
 
 
-    private SearchWindow searchWindow = new SearchWindow();
+    private SearchWindow searchWindow;
 
     @Override
     public HotKey hotKey(int identifier) {
@@ -19,12 +20,10 @@ public class SearchHelpFunction implements HotKeyFunction{
     }
 
     @Override
-    public void event() {
+    public void event(Application application) {
+        if(searchWindow == null) {
+            searchWindow = new SearchWindow(application);
+        }
         searchWindow.setVisible(!searchWindow.isVisible());
-    }
-
-    public static void main(String[] args) {
-        SearchHelpFunction searchHelpFunction = new SearchHelpFunction();
-        searchHelpFunction.event();
     }
 }

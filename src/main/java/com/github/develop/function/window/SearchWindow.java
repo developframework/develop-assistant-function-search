@@ -1,5 +1,7 @@
 package com.github.develop.function.window;
 
+import com.github.develop.assistant.Application;
+import com.github.develop.assistant.BaseWindow;
 import com.github.develop.function.search.BaiduSearchWay;
 import com.github.develop.function.search.GoogleSearchWay;
 import com.github.develop.function.search.MvnRepositorySearchWay;
@@ -17,8 +19,8 @@ import java.awt.event.WindowEvent;
  */
 public class SearchWindow extends BaseWindow {
 
-    public SearchWindow() {
-        super("Search", 450, 80, true);
+    public SearchWindow(Application application) {
+        super(application, "Search", 450, 80, true);
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/icon.png")));
         JPanel contentPanel = new JPanel(null);
         this.setContentPane(contentPanel);
