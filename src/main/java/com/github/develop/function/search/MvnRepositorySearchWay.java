@@ -1,5 +1,7 @@
 package com.github.develop.function.search;
 
+import com.github.develop.function.window.SearchWindow;
+
 /**
  * Mvn Repository搜索
  */
@@ -13,5 +15,10 @@ public class MvnRepositorySearchWay extends BrowseSearchWay{
     @Override
     public String toString() {
         return "Mvn Repository";
+    }
+
+    @Override
+    public void inputHint(SearchWindow.HintTextField hintTextField, String text) {
+
     }
 }
