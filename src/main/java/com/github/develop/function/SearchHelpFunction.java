@@ -1,6 +1,7 @@
 package com.github.develop.function;
 
 import com.github.develop.assistant.Application;
+import com.github.develop.assistant.ApplicationAware;
 import com.github.develop.assistant.HotKey;
 import com.github.develop.assistant.HotKeyFunction;
 import com.github.develop.function.window.SearchWindow;
@@ -11,9 +12,14 @@ import java.awt.*;
 /**
  * 搜索辅助热键
  */
-public class SearchHelpFunction implements HotKeyFunction{
+public class SearchHelpFunction implements HotKeyFunction, ApplicationAware {
 
     private SearchWindow searchWindow;
+
+    @Override
+    public void setApplication(Application application) {
+        searchWindow = new SearchWindow(application);
+    }
 
     @Override
     public HotKey hotKey(int identifier) {
@@ -21,10 +27,7 @@ public class SearchHelpFunction implements HotKeyFunction{
     }
 
     @Override
-    public void event(Application application) {
-        if(searchWindow == null) {
-            searchWindow = new SearchWindow(application);
-        }
+    public void event() {
         searchWindow.toggle();
     }
 
@@ -36,7 +39,6 @@ public class SearchHelpFunction implements HotKeyFunction{
     }
 
     public static void main(String[] args) {
-        new SearchHelpFunction().event(null);
+        new SearchHelpFunction().event();
     }
-
 }
