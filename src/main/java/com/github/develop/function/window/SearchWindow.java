@@ -23,7 +23,7 @@ import java.awt.event.*;
 public class SearchWindow extends BaseWindow {
 
     public SearchWindow(Application application) {
-        super(application, "Search", 30, 5, true);
+        super(application, "Search", 30, 7, true);
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/icon.png")));
         this.setResizable(false);
 
@@ -127,7 +127,8 @@ public class SearchWindow extends BaseWindow {
         }
     }
 
-    public static void main(String[] args) {
-        new SearchWindow(null).setVisible(true);
+    public void toggle() {
+        setVisible(!isVisible());
     }
+
 }

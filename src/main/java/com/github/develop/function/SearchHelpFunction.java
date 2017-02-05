@@ -6,11 +6,12 @@ import com.github.develop.assistant.HotKeyFunction;
 import com.github.develop.function.window.SearchWindow;
 import com.melloware.jintellitype.JIntellitype;
 
+import java.awt.*;
+
 /**
- * 搜索辅助
+ * 搜索辅助热键
  */
 public class SearchHelpFunction implements HotKeyFunction{
-
 
     private SearchWindow searchWindow;
 
@@ -24,6 +25,18 @@ public class SearchHelpFunction implements HotKeyFunction{
         if(searchWindow == null) {
             searchWindow = new SearchWindow(application);
         }
-        searchWindow.setVisible(!searchWindow.isVisible());
+        searchWindow.toggle();
     }
+
+    @Override
+    public MenuItem createMenuItem() {
+        MenuItem search = new MenuItem("搜索条");
+        search.addActionListener(event -> searchWindow.toggle());
+        return search;
+    }
+
+    public static void main(String[] args) {
+        new SearchHelpFunction().event(null);
+    }
+
 }
