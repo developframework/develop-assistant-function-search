@@ -37,8 +37,4 @@ public class SearchHelpFunction implements HotKeyFunction, ApplicationAware {
         search.addActionListener(event -> searchWindow.toggle());
         return search;
     }
-
-    public static void main(String[] args) {
-        new SearchHelpFunction().event();
-    }
 }

@@ -1,6 +1,9 @@
 package com.github.develop.function.search;
 
+import com.github.develop.function.utils.BrowseUtils;
+
 import java.awt.*;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URLEncoder;
 
@@ -11,15 +14,10 @@ public abstract class BrowseSearchWay implements SearchWay{
 
     @Override
     public void search(String word) {
-        if (Desktop.isDesktopSupported()) {
-            try {
-                Desktop dp = Desktop.getDesktop();
-                if (dp.isSupported(Desktop.Action.BROWSE)) {
-                    dp.browse(URI.create(uriStr(URLEncoder.encode(word, "UTF-8"))));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        try {
+            BrowseUtils.browse(uriStr(URLEncoder.encode(word, "UTF-8")));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
     }
 
