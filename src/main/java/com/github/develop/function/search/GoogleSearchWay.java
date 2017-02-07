@@ -1,6 +1,6 @@
 package com.github.develop.function.search;
 
-import com.github.develop.function.window.SearchPanel;
+import com.github.develop.function.window.component.HintTextField;
 
 /**
  * Google搜索
@@ -18,7 +18,7 @@ public class GoogleSearchWay extends BrowseSearchWay{
     }
 
     @Override
-    public void inputHint(SearchPanel.HintTextField hintTextField, String text) {
+    public void inputHint(HintTextField hintTextField, String text) {
 
     }
 }

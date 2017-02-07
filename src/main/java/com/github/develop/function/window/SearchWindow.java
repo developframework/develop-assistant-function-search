@@ -23,24 +23,28 @@ import java.awt.event.*;
 public class SearchWindow extends BaseWindow {
 
     public SearchWindow(Application application) {
-        super(application, "访问辅助", 30, 11, true);
+        super(application, "Search / Browse", 30, 11, true);
         this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/icon.png")));
         this.setResizable(false);
 
-        this.setLayout(new GridLayout(1,1));
+        this.setLayout(new GridLayout(1, 1));
 
         JTabbedPane tabbedPane = new JTabbedPane();
 
         SearchPanel searchPanel = new SearchPanel(this);
         BrowsePanel browsePanel = new BrowsePanel(this);
 
-        tabbedPane.addTab("Search", searchPanel);
-        tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
-        tabbedPane.addTab("Browse", browsePanel);
-        tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
+        Image internetIcon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/internet.png"));
+        Image folderIcon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/image/folder.png"));
+
+        tabbedPane.addTab("Search", new ImageIcon(internetIcon), searchPanel, "Search");
+        tabbedPane.setMnemonicAt(0, KeyEvent.VK_S);
+        tabbedPane.addTab("Browse", new ImageIcon(folderIcon), browsePanel, "Browse");
+        tabbedPane.setMnemonicAt(1, KeyEvent.VK_B);
+        tabbedPane.setDisplayedMnemonicIndexAt(0, 0);
+        tabbedPane.setDisplayedMnemonicIndexAt(1, 0);
         this.add(tabbedPane);
     }
-
 
 
     public void toggle() {

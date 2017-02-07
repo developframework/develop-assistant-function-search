@@ -3,7 +3,7 @@ package com.github.develop.function.search;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.github.develop.function.utils.HttpUtils;
-import com.github.develop.function.window.SearchPanel;
+import com.github.develop.function.window.component.HintTextField;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -25,7 +25,7 @@ public class BaiduSearchWay extends BrowseSearchWay {
     }
 
     @Override
-    public void inputHint(SearchPanel.HintTextField hintTextField, String text) {
+    public void inputHint(HintTextField hintTextField, String text) {
         try {
             String response = HttpUtils.get("https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?json=1&wd=" + URLEncoder.encode(text, "UTF-8"));
             if (response != null) {
