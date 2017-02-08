@@ -23,7 +23,7 @@ public class SearchHelpFunction implements HotKeyFunction, ApplicationAware {
 
     @Override
     public HotKey hotKey(int identifier) {
-        return new HotKey(identifier, JIntellitype.MOD_ALT, 'S', "弹出搜索框");
+        return new HotKey(identifier, JIntellitype.MOD_ALT, 'Q', "弹出搜索框");
     }
 
     @Override

@@ -29,12 +29,17 @@ public class SearchPanel extends JPanel {
         hintTextField.addHintTextEventListener(new HintTextField.HintTextEventListener() {
             @Override
             public void onTextFieldPressKeyEnter(JFrame frame, JTextField textField, JComboBox comboBox) {
+                if (comboBox.isPopupVisible()) {
+                    textField.setText(comboBox.getSelectedItem().toString());
+                    comboBox.hidePopup();
+                    textField.requestFocus();
+                    return;
+                }
                 String word = textField.getText().trim();
                 if (!word.isEmpty()) {
-                    SearchWay searchWay = (SearchWay) comboBox.getSelectedItem();
+                    SearchWay searchWay = (SearchWay) typeComboBox.getSelectedItem();
                     searchWay.search(word);
                     textField.setText("");
-                    comboBox.setSelectedIndex(0);
                     frame.dispose();
                 }
             }

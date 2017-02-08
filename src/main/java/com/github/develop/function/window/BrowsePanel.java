@@ -85,11 +85,13 @@ public class BrowsePanel extends JPanel {
         this.setLayout(searchBoxLayout);
         typeComboBox = new JComboBox<>(new HintTextField.HintTextEventListener[]{httpHintTextEventListener, fileHintTextEventListener});
         hintTextField = new HintTextField(frame);
+        hintTextField.addHintTextEventListener((HintTextField.HintTextEventListener) typeComboBox.getSelectedItem());
         add(typeComboBox);
         add(hintTextField);
 
         typeComboBox.addItemListener(e -> {
             hintTextField.addHintTextEventListener((HintTextField.HintTextEventListener) typeComboBox.getSelectedItem());
+            hintTextField.setText("");
             hintTextField.getHintBox().removeAllItems();
             hintTextField.getHintBox().hidePopup();
         });
