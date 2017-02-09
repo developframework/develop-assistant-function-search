@@ -1,1 +1,6 @@
-com.github.develop.function.SearchHelpFunction
+{
+    "functions": [
+        "com.github.develop.function.SearchHelpFunction"
+    ]
+}
+
