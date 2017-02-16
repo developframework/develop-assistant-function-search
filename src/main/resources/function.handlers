@@ -1,6 +1,7 @@
 {
     "functions": [
-        "com.github.develop.function.SearchHelpFunction"
+        "com.github.develop.function.SearchHelpFunction",
+        "com.github.develop.function.BookmarkFunction"
     ]
 }
 

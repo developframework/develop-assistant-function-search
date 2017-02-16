@@ -2,20 +2,10 @@ package com.github.develop.function.window;
 
 import com.github.develop.assistant.Application;
 import com.github.develop.assistant.BaseWindow;
-import com.github.develop.function.search.BaiduSearchWay;
-import com.github.develop.function.search.GoogleSearchWay;
-import com.github.develop.function.search.MvnRepositorySearchWay;
-import com.github.develop.function.search.SearchWay;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.text.BadLocationException;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.KeyEvent;
 
 /**
  * 搜索/浏览窗口
@@ -44,11 +34,6 @@ public class SearchWindow extends BaseWindow {
         tabbedPane.setDisplayedMnemonicIndexAt(0, 0);
         tabbedPane.setDisplayedMnemonicIndexAt(1, 0);
         this.add(tabbedPane);
-    }
-
-
-    public void toggle() {
-        setVisible(!isVisible());
     }
 
     public static void main(String[] args) {

@@ -2,9 +2,7 @@ package com.github.develop.function.search;
 
 import com.github.develop.function.utils.BrowseUtils;
 
-import java.awt.*;
 import java.io.UnsupportedEncodingException;
-import java.net.URI;
 import java.net.URLEncoder;
 
 /**

@@ -1,9 +1,6 @@
 package com.github.develop.function;
 
-import com.github.develop.assistant.Application;
-import com.github.develop.assistant.ApplicationAware;
-import com.github.develop.assistant.HotKey;
-import com.github.develop.assistant.HotKeyFunction;
+import com.github.develop.assistant.*;
 import com.github.develop.function.window.SearchWindow;
 import com.melloware.jintellitype.JIntellitype;
 
@@ -12,7 +9,7 @@ import java.awt.*;
 /**
  * 搜索辅助热键
  */
-public class SearchHelpFunction implements HotKeyFunction, ApplicationAware {
+public class SearchHelpFunction implements HotKeyFunction, ApplicationAware, MenuSupport {
 
     private SearchWindow searchWindow;
 
